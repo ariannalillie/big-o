@@ -15,24 +15,35 @@ function quadraticBiggestFish(fishes) {
   }
 }
 
-const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
-'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
-
-console.log(quadraticBiggestFish(fishies));
-
 
 //Find the longest fish in O(n log n) time.
 //Hint: Use the built in Array.sort() method which runs in O(n log n).
 //Remember that Big O is classified by the dominant term.
+// O(n log n) time
+// O(1) space
 function nlognBiggestFish(fishes) {
-  // Code goes here ...
+  // sort the fishes array from longest to shortest
+  fishes.sort((a, b) => b.length - a.length);
+  // return the first elememt
+  return fishes[0];
 }
 
 
+// Find the longest fish in O(n) time.
+// O(n) time
+// O(1) space
 function linearBiggestFish(fishes) {
-  // Code goes here ...
+  let biggestFish = fishes[0];
+  fishes.forEach(fish => {
+    if (biggestFish.length < fish.length) biggestFish = fish
+  })
+  return biggestFish;
 }
 
+const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
+'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'];
+
+console.log(linearBiggestFish(fishies));
 
 tilesArray = ["up", "right-up", "right", "right-down", "down", "left-down", "left", "left-up"]
 function slowDance(direction, tilesArray) {
