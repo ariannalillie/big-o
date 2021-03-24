@@ -45,11 +45,18 @@ const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
 
 console.log(linearBiggestFish(fishies));
 
+
+// linear octopus dance
+// O(n) time
 tilesArray = ["up", "right-up", "right", "right-down", "down", "left-down", "left", "left-up"]
 function slowDance(direction, tilesArray) {
-  // Code goes here ...
+  for (let i = 0; i < tilesArray.length; i++) {
+    let tile = tilesArray[i];
+    if (tile == direction) return i;
+  }
 }
 
+console.log(slowDance("down", tilesArray))
 
 tilesObj = {
   "up": 0,
@@ -61,6 +68,12 @@ tilesObj = {
   "left": 6,
   "left-up": 7
 }
+
+// constant octopus dance
+//use a hash for constant lookup
+// O(1) time
 function fastDance(direction, tilesObj) {
-  // Code goes here ...
+  return tilesObj[direction];
 }
+
+console.log(fastDance("left", tilesObj))
