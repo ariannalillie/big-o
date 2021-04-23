@@ -29,7 +29,9 @@ function okayTwoSum2(arr, targetSum) {
 
 
 function twoSum(arr, targetSum) {
-  // Code goes here ...
+  arr.forEach(num => {
+    if (i === targetSum - arr[i]) return true;
+  })
 }
 
 
